@@ -4,8 +4,7 @@
   "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
   "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon dist/main.js"
+    "start": "tsc-watch --onSuccess \"node .\""
   },
   "repository": {
     "type": "git",
@@ -19,7 +18,7 @@
   "homepage": "https://gitlab.com/mspr-dev-4/webshop-api#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "nodemon": "^2.0.20"
+    "tsc-watch": "^6.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.15",
