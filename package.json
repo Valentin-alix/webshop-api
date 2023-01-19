@@ -1,28 +1,26 @@
 {
   "name": "webshop-api",
   "version": "1.0.0",
-  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
-  "main": "dist/main.js",
+  "description": "webshop-api (pour les clients)",
+  "main": "dist/Main.js",
   "scripts": {
-    "start": "tsc-watch --onSuccess \"node .\""
+    "lint": "standard src/**/*.ts",
+    "start": "tsc-watch --onSuccess \"node .\"",
+    "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/mspr-dev-4/webshop-api.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/mspr-dev-4/webshop-api/issues"
-  },
-  "homepage": "https://gitlab.com/mspr-dev-4/webshop-api#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "tsc-watch": "^6.0.0"
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.15",
     "@types/node": "^18.11.18",
-    "typescript": "^4.9.4"
+    "standard": "^17.0.0",
+    "tsc-watch": "^6.0.0",
+    "typescript": "^4.9.4",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.5",
+    "@types/jest": "^29.2.6",
+    "eslint-config-standard": "^17.0.0"
   }
 }
