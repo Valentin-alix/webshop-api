@@ -31,7 +31,7 @@ quality-job:
   stage: quality
   image: node:16-alpine
   script:
-    - npm lint
+    - npm run lint
   cache:
     key: 'dependencies'
     policy: pull
