@@ -7,7 +7,7 @@ stages:
 installDeps-job:
   - stage: installDeps
   - image: node:16-alpine
-  - scripts:
+  - script:
     - npm install
   - cache:
     - key: 'dependencies'
@@ -18,7 +18,7 @@ installDeps-job:
 test-job:
   - stage: test
   - image: node:16-alpine
-  - scripts:
+  - script:
     - npm test
   - cache:
     - policy: pull
@@ -30,7 +30,7 @@ test-job:
 quality-job:
   - stage: quality
   - image: node:16-alpine
-  - scripts:
+  - script:
     - npm lint
   - cache:
     - key: 'dependencies'
@@ -42,7 +42,7 @@ quality-job:
 build-job:
   - stage: build
   - image: node:16-alpine
-  - scripts:
+  - script:
     - npm run build
   - cache:
     - key: 'dependencies'
