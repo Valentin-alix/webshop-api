@@ -2,6 +2,7 @@ stages:
   - installDeps
   - test
   - quality
+  - deploy
 
 installDeps-job:
   stage: installDeps
@@ -20,11 +21,11 @@ test-job:
   script:
     - npm test
   cache:
-    policy: pull
     key: 'dependencies'
     paths:
       - node_modules/
       - package-lock.json
+    policy: pull
 
 quality-job:
   stage: quality
@@ -32,10 +33,26 @@ quality-job:
   script:
     - npm run lint
   cache:
-    key: 'dependencies'
-    policy: pull
+    key: 'dependencies' 
     paths:
       - node_modules/
       - package-lock.json
+    policy: pull
+
+pages:
+  stage: deploy
+  image: node:16-alpine
+  script:
+    - npx tsc
+    - cp -r dist/ public/
+  cache:
+    key: 'dependencies' 
+    paths:
+      - node_modules/
+      - package-lock.json
+    policy: pull
+  artifacts:
+    paths:
+      - public
 
 
