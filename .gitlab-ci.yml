@@ -43,6 +43,7 @@ pages:
   stage: deploy
   image: node:16-alpine
   script:
+    - echo $CI_PAGES_URL
     - npx tsc
     - cp -r dist/ public/
   cache:
