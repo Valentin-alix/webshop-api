@@ -1,19 +1,15 @@
 import { Router } from 'express'
+import { CustomerService } from '../services/CustomerService';
 
-export const router = Router();
+export const customerRouter = Router();
 
-router.get('/customers/', (req, res) => {
-    res.send("customers")
+customerRouter.get('', (req, res) => {
+    CustomerService.getCustomers().then(customers => res.send(customers))
 })
 
-router.get('/customers/:id', (req, res) => {
+customerRouter.get('/:id', (req, res) => {
+    console.log(req.params.id);
+
     res.send("customer id")
 })
 
-router.get('products/', (req, res) => {
-    res.send("products")
-})
-
-router.get('products/:id', (req, res) => {
-    res.send("product id")
-})
