@@ -4,7 +4,8 @@
   "description": "webshop-api (pour les clients)",
   "main": "dist/Main.js",
   "scripts": {
-    "lint": "standard src/**/*.ts",
+    "lint": "npx ts-standard src/**/*.ts",
+    "lint:fix": "npx ts-standard --fix",
     "start": "tsc-watch --onSuccess \"node .\"",
     "test": "jest"
   },
