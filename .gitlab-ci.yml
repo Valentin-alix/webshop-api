@@ -11,9 +11,6 @@ default:
       - node_modules/
       - package-lock.json
     policy: pull
-  only:
-    - main
-    - dev
 
 installDeps-job:
   stage: installDeps
@@ -21,15 +18,24 @@ installDeps-job:
     - npm install
   cache:
     policy: pull-push
+  only:
+  - main
+  - dev
 
 test-job:
   stage: test
   script:
     - npm test
+  only:
+    - main
+    - dev
 
 quality-job:
   stage: quality
   script:
     - npm run lint
+  only:
+    - main
+    - dev
 
 
