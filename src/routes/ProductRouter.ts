@@ -9,5 +9,5 @@ productRouter.get('', (req, res) => {
 })
 
 productRouter.get('/:id', (req, res) => {
-    res.send(ProductService.getProductById(parseInt(req.params.id)))
+    res.send(ProductService.getProduct(parseInt(req.params.id)))
 })
