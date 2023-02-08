@@ -8,8 +8,6 @@ customerRouter.get('', (req, res) => {
 })
 
 customerRouter.get('/:id', (req, res) => {
-    console.log(req.params.id);
-
-    res.send("customer id")
+    CustomerService.getCustomer(parseInt(req.params.id)).then(customer => res.send(customer))
 })
 
