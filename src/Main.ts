@@ -2,7 +2,7 @@ import express from 'express'
 import { customerRouter } from './routes/CustomerRouter'
 import { productRouter } from './routes/ProductRouter'
 
-const app = express()
+export const app = express()
 const port = 3000
 
 app.use('/customers/', customerRouter)
