@@ -3,11 +3,10 @@ import { Product } from '../models/Product'
 export class ProductService {
   static async getProduct(productId: number): Promise<Product> {
     return await fetch(`https://615f5fb4f7254d0017068109.mockapi.io/api/v1/products/${productId}`)
-      .then(response => {
+      .then(async response => {
         if (response.ok) {
-          return response.json()
-        }
-        else {
+          return await response.json()
+        } else {
           throw response.status
         }
       }

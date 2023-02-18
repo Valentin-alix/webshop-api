@@ -6,7 +6,10 @@
     "outDir": "./dist",
     "noImplicitAny": true,
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "skipLibCheck": true
   },
   "include": [
     "./src/**/*"

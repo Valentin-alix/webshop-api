@@ -5,9 +5,9 @@ import { ProductService } from '../services/ProductService'
 export const productRouter = Router()
 
 productRouter.get('', (req, res) => {
-  res.send(ProductService.getProducts())
+  ProductService.getProducts().then(products => res.send(products))
 })
 
 productRouter.get('/:id', (req, res) => {
-  res.send(ProductService.getProduct(parseInt(req.params.id)))
+  ProductService.getProduct(parseInt(req.params.id)).then(product => res.send(product))
 })

@@ -3,5 +3,7 @@ export default {
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
-  testMatch: ['<rootDir>/src/tests/**']
+  testMatch: ['<rootDir>/src/tests/**'],
+  preset: "ts-jest",
+  testEnvironment: "node"
 }
