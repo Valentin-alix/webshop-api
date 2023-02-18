@@ -7,7 +7,7 @@
     "lint": "npx ts-standard src/**/*.ts",
     "lint:fix": "npx ts-standard --fix",
     "start": "tsc-watch --onSuccess \"node .\"",
-    "test": "jest --coverage --detectOpenHandles --forceExit"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "@types/jest": "^29.2.6",
