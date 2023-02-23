@@ -1,0 +1,59 @@
+stages:
+  - installDeps
+  - test
+  - quality
+  - deploy
+
+default:
+  image: node:16-alpine
+
+installDeps-job:
+  stage: installDeps
+  script:
+    - npm install
+  cache:
+    key: 'dependencies'
+    paths:
+      - node_modules/
+      - package-lock.json
+  only:
+  - main
+  - dev
+
+test-job:
+  stage: test
+  cache:
+    key: 'dependencies'
+    paths:
+      - node_modules/
+      - package-lock.json
+    policy: pull
+  script:
+    - npm run test
+  only:
+    - main
+    - dev
+
+quality-job:
+  stage: quality
+  cache:
+    key: 'dependencies'
+    paths:
+      - node_modules/
+      - package-lock.json
+    policy: pull
+  script:
+    - npm run lint
+  only:
+    - main
+    - dev
+  allow_failure: true
+
+deploy-job:
+  stage: deploy
+  script:
+    - bash deploy.sh
+  only:
+    - main
+
+

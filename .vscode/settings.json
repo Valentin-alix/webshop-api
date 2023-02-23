@@ -1,0 +1,15 @@
+{
+    "standard.enableGlobally": true,
+    "standard.run": "onType",
+    "standard.autoFixOnSave": true,
+    "standard.validate": [
+        "typescript"
+    ],
+    "standard.options": {
+        "ignore": [
+            "node_modules/**",
+            "dist/**",
+            "coverage/**"
+        ]
+    },
+}

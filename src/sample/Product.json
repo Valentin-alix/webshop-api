@@ -1,0 +1,35 @@
+[
+    {
+        "createdAt": "2022-07-10T15:34:24.001Z",
+        "name": "Jerald Maggio",
+        "details": {
+            "price": "652.00",
+            "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+            "color": "sky blue"
+        },
+        "stock": 13074,
+        "id": "7"
+    },
+    {
+        "createdAt": "2022-07-11T01:31:03.492Z",
+        "name": "Rufus Block",
+        "details": {
+            "price": "930.00",
+            "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+            "color": "teal"
+        },
+        "stock": 83329,
+        "id": "8"
+    },
+    {
+        "createdAt": "2022-07-11T07:01:13.563Z",
+        "name": "Alyssa Labadie",
+        "details": {
+            "price": "781.00",
+            "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+            "color": "yellow"
+        },
+        "stock": 50144,
+        "id": "9"
+    }
+]
