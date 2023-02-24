@@ -52,7 +52,7 @@ quality-job:
 deploy-job:
   stage: deploy
   script:
-    - ./deploy.sh
+    - bash deploy.sh
   only:
     - main
 
