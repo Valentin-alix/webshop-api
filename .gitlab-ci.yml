@@ -51,9 +51,16 @@ quality-job:
 
 deploy-job:
   stage: deploy
+  cache:
+    key: 'dependencies'
+    paths:
+      - node_modules/
+      - package-lock.json
+    policy: pull
   script:
-    - ./deploy.sh
+    - npm run start
   only:
     - main
+    - dev
 
 
