@@ -51,14 +51,11 @@ quality-job:
 
 deploy-job:
   stage: deploy
-  cache:
-    key: 'dependencies'
-    paths:
-      - node_modules/
-      - package-lock.json
-    policy: pull
+  image: docker:19.03.11
+  services:
+    - docker:19.03.11-dind
   script:
-    - npm run start
+    - ./deploy.sh
   only:
     - main
     - dev
