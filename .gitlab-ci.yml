@@ -50,6 +50,8 @@ stages:
 #   allow_failure: true
 
 deploy-job:
+  tags:
+    - webshop_api
   image: docker:latest
   services:
     - docker
