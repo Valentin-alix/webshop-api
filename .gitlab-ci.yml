@@ -52,13 +52,9 @@ stages:
 deploy-job:
   tags:
     - webshop_api
-  image: docker:latest
-  services:
-    - name: docker:dind
-    command: ["--tls=false"]
   stage: deploy
   script:
-    - ./deploy.sh
+    - npm run deploy
   only:
     - main
     - dev
