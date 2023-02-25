@@ -52,10 +52,6 @@ stages:
 deploy-job:
   tags:
     - webshop_api
-  image: docker:latest
-  services:
-  - name: docker:dind
-    entrypoint: ["dockerd-entrypoint.sh", "--tls=false"]
   stage: deploy
   script:
     - npm run deploy
