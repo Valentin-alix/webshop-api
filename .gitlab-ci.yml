@@ -50,6 +50,9 @@ quality-job:
   allow_failure: true
 
 deploy-job:
+  image: docker:latest
+  services:
+    - docker
   stage: deploy
   script:
     - bash deploy.sh
