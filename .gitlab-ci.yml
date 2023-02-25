@@ -4,10 +4,8 @@ stages:
   - quality
   - deploy
 
-default:
-  image: node:latest
-
 installDeps-job:
+  image: node:19-alpine
   stage: installDeps
   script:
     - npm install
@@ -21,6 +19,7 @@ installDeps-job:
   - dev
 
 test-job:
+  image: node:19-alpine
   stage: test
   cache:
     key: 'dependencies'
@@ -35,6 +34,7 @@ test-job:
     - dev
 
 quality-job:
+  image: node:19-alpine
   stage: quality
   cache:
     key: 'dependencies'
@@ -52,7 +52,7 @@ quality-job:
 deploy-job:
   stage: deploy
   script:
-    - ./deploy.sh
+    - bash deploy.sh
   only:
     - main
 
