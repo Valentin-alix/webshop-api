@@ -58,5 +58,6 @@ deploy-job:
     - bash deploy.sh
   only:
     - main
+    - dev
 
 
