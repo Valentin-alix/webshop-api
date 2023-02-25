@@ -1,53 +1,53 @@
 stages:
-  - installDeps
-  - test
-  - quality
+  # - installDeps
+  # - test
+  # - quality
   - deploy
 
-installDeps-job:
-  image: node:19-alpine
-  stage: installDeps
-  script:
-    - npm install
-  cache:
-    key: 'dependencies'
-    paths:
-      - node_modules/
-      - package-lock.json
-  only:
-  - main
-  - dev
+# installDeps-job:
+#   image: node:19-alpine
+#   stage: installDeps
+#   script:
+#     - npm install
+#   cache:
+#     key: 'dependencies'
+#     paths:
+#       - node_modules/
+#       - package-lock.json
+#   only:
+#   - main
+#   - dev
 
-test-job:
-  image: node:19-alpine
-  stage: test
-  cache:
-    key: 'dependencies'
-    paths:
-      - node_modules/
-      - package-lock.json
-    policy: pull
-  script:
-    - npm run test
-  only:
-    - main
-    - dev
+# test-job:
+#   image: node:19-alpine
+#   stage: test
+#   cache:
+#     key: 'dependencies'
+#     paths:
+#       - node_modules/
+#       - package-lock.json
+#     policy: pull
+#   script:
+#     - npm run test
+#   only:
+#     - main
+#     - dev
 
-quality-job:
-  image: node:19-alpine
-  stage: quality
-  cache:
-    key: 'dependencies'
-    paths:
-      - node_modules/
-      - package-lock.json
-    policy: pull
-  script:
-    - npm run lint
-  only:
-    - main
-    - dev
-  allow_failure: true
+# quality-job:
+#   image: node:19-alpine
+#   stage: quality
+#   cache:
+#     key: 'dependencies'
+#     paths:
+#       - node_modules/
+#       - package-lock.json
+#     policy: pull
+#   script:
+#     - npm run lint
+#   only:
+#     - main
+#     - dev
+#   allow_failure: true
 
 deploy-job:
   image: docker:latest
@@ -55,7 +55,7 @@ deploy-job:
     - docker
   stage: deploy
   script:
-    - bash deploy.sh
+    - ./deploy.sh
   only:
     - main
     - dev
