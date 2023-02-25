@@ -4,29 +4,27 @@ stages:
   - quality
   - deploy
 
-installDeps-job:
+default:
   image: node:19-alpine
-  stage: installDeps
-  script:
-    - npm install
   cache:
+    policy: pull
     key: 'dependencies'
     paths:
       - node_modules/
       - package-lock.json
+
+installDeps-job:
+  stage: installDeps
+  script:
+    - npm install
+  cache:
+    policy: pull-push
   only:
   - main
   - dev
 
 test-job:
-  image: node:19-alpine
   stage: test
-  cache:
-    key: 'dependencies'
-    paths:
-      - node_modules/
-      - package-lock.json
-    policy: pull
   script:
     - npm run test
   only:
@@ -34,14 +32,7 @@ test-job:
     - dev
 
 quality-job:
-  image: node:19-alpine
   stage: quality
-  cache:
-    key: 'dependencies'
-    paths:
-      - node_modules/
-      - package-lock.json
-    policy: pull
   script:
     - npm run lint
   only:
@@ -50,9 +41,11 @@ quality-job:
   allow_failure: true
 
 deploy-job:
+  tags:
+    - webshop_api
   stage: deploy
   script:
-    - bash deploy.sh
+    - npm run deploy
   only:
     - main
 
