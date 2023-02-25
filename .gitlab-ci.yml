@@ -54,7 +54,8 @@ deploy-job:
     - webshop_api
   image: docker:latest
   services:
-    - docker
+    - name: docker:dind
+    command: ["--tls=false"]
   stage: deploy
   script:
     - ./deploy.sh
